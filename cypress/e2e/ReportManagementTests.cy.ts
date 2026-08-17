@@ -1,16 +1,26 @@
-describe("template spec", () => {
-  it("passes", () => {
-    cy.visit("https://www.matchingengine.com/");
+import Navbar from "../pages/Navbar";
+import RepertoireManagementPage from "../pages/RepertoireManagementPage";
+import Homepage from "../pages/Homepage";
 
-    // Accept Cookies
-    cy.get("#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll").click();
+describe("Matching Engine Tests", () => {
+  const homePage = new Homepage();
+  const navbar = new Navbar();
+  const repertoireManagementPage = new RepertoireManagementPage();
 
-    cy.get(".SPTNavigation_burgerBtn__AhPdm").click();
+  beforeEach(() => {
+    homePage.visit();
+  });
 
-    cy.get(".MainNavLink_row__3cGfi").eq(4).click();
+  it("Repertoire Management Test", () => {
+    homePage.visit();
 
-    cy.get(".SubNavLink_subRoot__jqzFL").eq(1).click();
-    cy.contains("Additional Features").scrollIntoView().should("be.visible");
-    cy.get("Products Supported").click();
+    homePage.acceptCookies();
+
+    cy.fixture("NavbarFixture").then((NavbarFixture) => {
+      navbar.goTo(NavbarFixture.NavbarSolutions.RepertoireManagement);
+    });
+
+    repertoireManagementPage.goToSection("Additional Features");
+    repertoireManagementPage.getElement("Products Supported").click();
   });
 });
