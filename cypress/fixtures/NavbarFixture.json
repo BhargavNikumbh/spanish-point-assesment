@@ -1,0 +1,13 @@
+{
+  "NavbarSoftware": "Software",
+  "NavbarSolutions": {
+    "MusicAndCopyRightSolutions": "Music and copyright solutions",
+    "RepertoireManagement": "Repertoire management",
+    "RepertoireAndUsageMatching": "Repertoire and usage matching",
+    "DataIngestionAndIntegration": "Data ingestion and integration",
+    "DistributionProcessing": "Distribution processing",
+    "MemberManagement": "Member management",
+    "MemberSelfService": "Member self service"
+  },
+  "NavbarAboutUs": "About us"
+}
