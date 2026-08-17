@@ -1,0 +1,28 @@
+{
+  "name": "spanish-point-assesment",
+  "version": "1.0.0",
+  "description": "\"# spanish-point-assesment\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BhargavNikumbh/spanish-point-assesment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BhargavNikumbh/spanish-point-assesment/issues"
+  },
+  "homepage": "https://github.com/BhargavNikumbh/spanish-point-assesment#readme",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/mocha": "^10.0.10",
+    "cypress": "^15.20.1",
+    "mocha": "^11.8.0",
+    "typescript": "^7.0.2"
+  }
+}
