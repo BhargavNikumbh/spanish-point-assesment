@@ -4,7 +4,10 @@
   "description": "\"# spanish-point-assesment\"",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:run": "cypress run",
+    "report:merge": "mochawesome-merge cypress/results/*.json -o cypress/results/mochawesome.json",
+    "report:generate": "marge cypress/results/mochawesome.json -f index -o cypress/results/report",
+    "test": "npm run cy:run && npm run report:merge && npm run report:generate"
   },
   "repository": {
     "type": "git",

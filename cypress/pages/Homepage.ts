@@ -7,7 +7,7 @@ class Homepage {
   }
 
   visit(): void {
-    cy.fixture("URL").then((URL) => {
+    cy.fixture("Url").then((URL) => {
       cy.visit(URL.URL);
     });
   }

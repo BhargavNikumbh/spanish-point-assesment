@@ -1,0 +1,11 @@
+services:
+  cypress:
+    image: matching-engine-cypress
+    container_name: matching-engine-cypress
+
+    volumes:
+      - ./cypress/results:/e2e/cypress/results
+      - ./cypress/screenshots:/e2e/cypress/screenshots
+      - ./cypress/videos:/e2e/cypress/videos
+
+    command: npx cypress run --browser chrome
