@@ -9,7 +9,6 @@ describe("Matching Engine Tests", () => {
 
   beforeEach(() => {
     homePage.visit();
-    // homePage.acceptCookies();
   });
 
   /**
