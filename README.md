@@ -42,6 +42,60 @@ Cypress end-to-end test automation project using:
 └── .dockerignore
 ```
 
+## Notes
+
+- Page-specific selectors and actions are present in Page Object classes.
+- Test data is maintained in Cypress fixtures.
+- Chrome is used for terminal and Docker execution.
+
+---
+
+# Test Dependencies
+
+Some tests in the `Distribution Processing` test suite depend on the initial
+Solutions navigation validation.
+
+The prerequisite test is executed in the `before` block. Tests 1, 2 and 3
+will only proceed when the prerequisite validation in the `before` block
+passes successfully.
+
+If the prerequisite test fails, the dependent tests will be skipped because
+the required navigation flow cannot be reliably executed.
+
+This ensures that failures in the navigation prerequisite do not produce
+misleading failures in the dependent tests.
+
+The test flow is:
+
+```text
+before block
+    |
+    ├── Validate Solutions navigation
+    |
+    ├── PASS ──> Test 1
+    │             Test 2
+    │             Test 3
+    │
+    └── FAIL ──> Dependent tests skipped
+
+```
+
+---
+
+# GitHub Actions CI
+
+The repository includes a GitHub Actions workflow that automatically
+executes the Cypress test suite whenever changes are pushed to the repository.
+
+The workflow is located under:
+
+```text
+.github/
+└── workflows/
+    └── cypress.yml
+
+```
+
 ---
 
 # Prerequisites
@@ -689,10 +743,3 @@ Developer
 ```
 
 ---
-
-# Notes
-
-- "Repertoire Management Test" Test fails due to "Additional Features" section not present in UI
-- Page-specific selectors and actions are present in Page Object classes.
-- Test data is maintained in Cypress fixtures.
-- Chrome is used for terminal and Docker execution.
