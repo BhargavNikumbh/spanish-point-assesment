@@ -10,14 +10,14 @@ describe("Distribution Processing", () => {
 
   beforeEach(() => {
     homePage.visit();
-    // homePage.acceptCookies();
   });
 
   /**
-   * Verify the Solutions list displayed in the navigation
+   * Remaining Tests start only when Solution list is validated
    */
-  it("Test 1: Should display the correct Solutions list", () => {
+  before(() => {
     cy.fixture("NavbarFixture").then((fixture) => {
+      homePage.visit();
       // Expand Solutions
       navbar.expandSolutions();
 
@@ -32,7 +32,7 @@ describe("Distribution Processing", () => {
   /**
    * Verify the All-in-one solution for scale section
    */
-  it("Test 2: Should verify All-in-one solution for scale cards", () => {
+  it("Test 1: Should verify All-in-one solution for scale cards", () => {
     cy.fixture("DistributedProcessingPageFixture").then((fixture) => {
       const testData = fixture;
 
@@ -66,7 +66,7 @@ describe("Distribution Processing", () => {
     });
   });
 
-  it("Test3: Verify All-in-one solution for scale title", () => {
+  it("Test2: Verify All-in-one solution for scale title", () => {
     cy.fixture("DistributedProcessingPageFixture").then((fixture) => {
       const testData = fixture.AllInOneSolutionForScale;
 
@@ -79,7 +79,7 @@ describe("Distribution Processing", () => {
     });
   });
 
-  it("Test 4: Verify distribution processing benefits", () => {
+  it("Test 3: Verify distribution processing benefits", () => {
     cy.fixture("DistributedProcessingPageFixture").then((fixture) => {
       const testData = fixture.AllInOneSolutionForScale;
 
