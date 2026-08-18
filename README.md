@@ -495,7 +495,6 @@ cypress.config.ts
 The configuration defines:
 
 - Cypress test settings
-- Viewport size
 - Reporter
 - Screenshots
 - Video recording
@@ -645,6 +644,12 @@ docker compose up --build
 
 ## View the HTML report
 
+Execute given command to get HTML report:
+
+```bash
+npx marge cypress/results/mochawesome.json -f index -o cypress/results/report
+```
+
 After execution:
 
 ```text
@@ -680,17 +685,14 @@ Developer
                |
                └── Mochawesome HTML report
                          |
-                         └── cypress/results/report/index.html
+                         └── cypress/results/report/index.html (Generated using npx marge cypress/results/mochawesome.json -f index -o cypress/results/report)
 ```
 
 ---
 
 # Notes
 
-- Tests should use stable selectors where possible.
-- Avoid relying on generated CSS class names when a stable `data-testid`, `id`, role, or accessible label is available.
-- Page-specific selectors and actions should remain in Page Object classes.
-- Test data should be maintained in Cypress fixtures.
-- Tests should be independent and should not rely on execution order.
+- "Repertoire Management Test" Test fails due to "Additional Features" section not present in UI
+- Page-specific selectors and actions are present in Page Object classes.
+- Test data is maintained in Cypress fixtures.
 - Chrome is used for terminal and Docker execution.
-- Screenshots and videos should be checked when investigating Docker-specific failures.

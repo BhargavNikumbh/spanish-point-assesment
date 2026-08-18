@@ -20,8 +20,15 @@ describe("Matching Engine Tests", () => {
       navbar.goTo(NavbarFixture.NavbarSolutions.RepertoireManagement);
     });
 
-    repertoireManagementPage.goToSection("Additional Features");
-    repertoireManagementPage.getElement("Products Supported").click();
+    cy.fixture("TestFixture").then((testData) => {
+      const repertoireTest = testData.RepertoireManagementTest;
+
+      repertoireManagementPage.goToSection(repertoireTest.AdditionalFeatures);
+
+      repertoireManagementPage
+        .getElement(repertoireTest.ProductsSupported)
+        .click();
+    });
   });
 
   /**
