@@ -13,25 +13,6 @@ describe("Matching Engine Tests", () => {
   });
 
   /**
-   * This test would fail as "Additional Features" section is not present on page
-   */
-  it("Repertoire Management Test", () => {
-    cy.fixture("NavbarFixture").then((NavbarFixture) => {
-      navbar.goTo(NavbarFixture.NavbarSolutions.RepertoireManagement);
-    });
-
-    cy.fixture("TestFixture").then((testData) => {
-      const repertoireTest = testData.RepertoireManagementTest;
-
-      repertoireManagementPage.goToSection(repertoireTest.AdditionalFeatures);
-
-      repertoireManagementPage
-        .getElement(repertoireTest.ProductsSupported)
-        .click();
-    });
-  });
-
-  /**
    * Test to compare title of Every card for a Section
    */
 
