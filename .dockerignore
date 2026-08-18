@@ -1,0 +1,9 @@
+node_modules
+cypress/videos
+cypress/screenshots
+cypress/results
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
+README.md

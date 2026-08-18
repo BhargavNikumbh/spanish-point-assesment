@@ -1,0 +1,33 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cypress:
+    name: Run Cypress Tests
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v7
+        with:
+          browser: chrome
+
+      - name: Upload Cypress results
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: cypress-results
+          path: |
+            cypress/results
+            cypress/screenshots
+            cypress/videos
