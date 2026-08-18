@@ -14,4 +14,18 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
+
+// cypress/support/e2e.ts
+
+Cypress.on("window:before:load", (win) => {
+  const style = win.document.createElement("style");
+
+  style.innerHTML = `
+    #CybotCookiebotDialog {
+      display: none !important;
+    }
+  `;
+
+  win.document.head.appendChild(style);
+});

@@ -1,9 +1,17 @@
 class Homepage {
   private cookieAcceptButton =
     "#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll";
+  private cookieDialog = "#CybotCookiebotDialogBodyContent";
 
   acceptCookies(): void {
-    cy.get(this.cookieAcceptButton).click();
+    // cy.get(this.cookieAcceptButton).click();
+    cy.get("body").then(($body) => {
+      const button = $body.find(this.cookieAcceptButton);
+
+      if (button.length > 0 && Cypress.$(button).is(":visible")) {
+        cy.wrap(button).click();
+      }
+    });
   }
 
   visit(): void {

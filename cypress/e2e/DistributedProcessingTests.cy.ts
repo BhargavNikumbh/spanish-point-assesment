@@ -10,7 +10,7 @@ describe("Distribution Processing", () => {
 
   beforeEach(() => {
     homePage.visit();
-    homePage.acceptCookies();
+    // homePage.acceptCookies();
   });
 
   /**
